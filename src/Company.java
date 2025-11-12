@@ -8,29 +8,28 @@ public class Company {
     protected TaxSystem taxSystem;
 
 
-    public Company(String title, TaxSystem taxSystem){
+    public Company(String title, TaxSystem taxSystem) {
         this.title = title;
         this.taxSystem = taxSystem;
     }
 
-    public void setTaxSystem(TaxSystem taxSystem){
+    public void setTaxSystem(TaxSystem taxSystem) {
         this.taxSystem = taxSystem;
     }
 
-    public void shiftMoney(int amount){
-        if (amount>0) {
+    public void shiftMoney(int amount) {
+        if (amount > 0) {
             debit += amount;
-        } else if (amount<0) {
+        } else if (amount < 0) {
             credit += Math.abs(amount);
         }
     }
 
-    public void payTaxes(){
+    public void payTaxes() {
         System.out.println("Компания: <" + title + "> выплатила налоги на сумму <" + taxSystem.calcTaxFor(debit, credit) + "> руб.");
         credit = 0;
         debit = 0;
     }
-
 
 
 }
